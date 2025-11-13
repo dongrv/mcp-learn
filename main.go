@@ -11,7 +11,7 @@ import (
 	"os"
 )
 
-// 先编译MCP Server: mcp-servers/writer/build.bat
+// TODO 先编译MCP Server: mcp-servers/writer/build.bat
 
 func init() {
 	utils.RegisterMCPServer("writer", "./bin/writer.exe")
@@ -49,8 +49,8 @@ func main() {
 	}
 
 	var messages = []openai.ChatCompletionMessageParamUnion{
-		openai.SystemMessage("你需要调用 writer 工具，当有人希望你写一篇小说时"),
-		openai.UserMessage("直接帮我生成一篇短篇推理悬疑小说，自行设定名字和内容，字数在800字左右，文笔风格参考《心理罪》，时代背景放在清末，内容探讨人性善恶。"),
+		openai.SystemMessage("当有人希望你写一篇小说时，你需要调用 writer 工具"),
+		openai.UserMessage("直接帮我生成一篇短篇推理悬疑小说，自行设定名字和内容，字数在800字左右，剧情风格参考《心理罪》，地点：美国，时代背景：现代，内容探讨人性善恶。"),
 	}
 
 	log.Println("--- 开始请求LLM ---")
